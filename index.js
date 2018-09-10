@@ -15,6 +15,11 @@ app.use(bodyParser.json())
 
 const url = 'https://jsonip.com/'
 app.get('/main', async (req, res) => {
+
+    try{
+
+
+
     const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] })
     const page = await browser.newPage()
     await page.setViewport({ width: 600, height: 600 })
@@ -24,6 +29,12 @@ app.get('/main', async (req, res) => {
     await page.screenshot({ path: title + '.png' });
     res.json(base64Img.base64Sync(title+'.png'))
     browser.close()
+
+    }
+
+    catch(e){
+        throw err
+    }
 
 })
 
