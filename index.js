@@ -4,8 +4,6 @@ const puppeteer = require('./node_modules/puppeteer/lib/Puppeteer');
 const express = require('express');
 var base64Img = require('base64-img');
 const app = express();
-
-
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
