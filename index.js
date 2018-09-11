@@ -24,6 +24,7 @@ app.get('/main', async (req, res) => {
     const page = await browser.newPage()
     await page.setViewport({ width: 600, height: 600 })
     await page.goto(url)
+    console.log(url)
     const title = await page.title()
     console.log(title)
     await page.screenshot({ path: title + '.png' });
